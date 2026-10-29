@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dinesh Patra</title>
+<meta name="description" content="Dinesh Patra, Ph.D. research scholar at IIT Kharagpur working on multi-agent pursuit–evasion, encirclement and capture, model predictive control and control barrier functions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Charis+SIL:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<style>
+  /* Layout: a single-column academic page (max 860px). Name + nav on top, photo beside the intro,
+     then plain sections separated by thin rules. Same teal and Charter-style serif as the CV. */
+  :root {
+    --bg: #FFFFFF;
+    --ink: #1B2326;
+    --muted: #5E6B6E;
+    --rule: #DDE3E2;
+    --accent: #0F4C5C;
+    --tint: #EEF4F4;
+    --font: "Charis SIL", "Charter", "Bitstream Charter", Georgia, serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12181A; --ink: #E3E8E7; --muted: #9AA8A9; --rule: #2A3537; --accent: #7EC2D0; --tint: #1A2629;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12181A; --ink: #E3E8E7; --muted: #9AA8A9; --rule: #2A3537; --accent: #7EC2D0; --tint: #1A2629;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: var(--font); font-size: 17px; line-height: 1.6;
+    border-top: 4px solid var(--accent);
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .page {
+    max-width: 860px; margin: 0 auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 36px 48px;
+  }
+
+  /* header */
+  header h1 { font-size: 2.3rem; line-height: 1.15; margin: 0; color: var(--accent); letter-spacing: -0.01em; }
+  header .sub { margin: 6px 0 0; color: var(--muted); }
+  nav { margin-top: 18px; padding-block: 10px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+        display: flex; flex-wrap: wrap; gap: 4px 22px; font-size: 0.95rem; }
+  nav a { color: var(--ink); }
+  nav a:hover { color: var(--accent); }
+
+  /* intro */
+  .intro { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 32px; margin-top: 32px; align-items: start; }
+  .intro img { width: 100%; max-width: 210px; height: auto; display: block; border: 1px solid var(--rule); }
+  .contact { list-style: none; padding: 0; margin: 14px 0 0; font-size: 0.9rem; line-height: 1.55; overflow-wrap: break-word; }
+  .contact li { margin: 0 0 4px; }
+  .contact .lbl { color: var(--muted); display: block; font-size: 0.8rem; }
+  .intro p { margin: 0 0 14px; }
+
+  .lookout b { color: var(--accent); }
+  .lookout ul { margin: -6px 0 14px; padding-left: 1.3em; columns: 2; column-gap: 24px; }
+  .lookout li { margin-bottom: 2px; break-inside: avoid; }
+
+  /* sections */
+  section { margin-top: 40px; }
+  h2 { font-size: 1.35rem; color: var(--accent); margin: 0 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--rule); }
+  h3 { font-size: 1rem; margin: 20px 0 8px; color: var(--muted); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+  section p { margin: 0 0 14px; }
+  ul.plain { padding-left: 1.2em; margin: 0; }
+  ul.plain li { margin-bottom: 6px; }
+
+  .interests { color: var(--muted); }
+  .interests b { color: var(--ink); font-weight: 700; }
+
+  /* publications */
+  ol.pubs { list-style: none; padding: 0; margin: 0; }
+  ol.pubs li { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 6px; margin-bottom: 12px; }
+  .tag { color: var(--muted); font-size: 0.9rem; padding-top: 2px; }
+  .ptitle { font-weight: 700; }
+  .venue { font-style: italic; }
+  .me { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+
+  /* dated lists: news, awards */
+  ul.dated { list-style: none; padding: 0; margin: 0; }
+  ul.dated li { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 12px; padding: 7px 0; border-bottom: 1px dotted var(--rule); }
+  ul.dated li:last-child { border-bottom: 0; }
+  .when { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .upcoming { color: var(--accent); font-weight: 700; }
+  figure { margin: 10px 0 2px; }
+  figure img { width: 100%; max-width: 460px; height: auto; display: block; border: 1px solid var(--rule); }
+  figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 4px; }
+
+  /* research problems */
+  .projects { display: flex; flex-direction: column; gap: 22px; margin: 6px 0 26px; }
+  .proj { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 20px; align-items: start;
+          padding-bottom: 20px; border-bottom: 1px dotted var(--rule); }
+  .proj:last-child { border-bottom: 0; padding-bottom: 0; }
+  .proj h4 { font-size: 1.05rem; margin: 0 0 6px; }
+  .proj p { margin: 0 0 6px; }
+  .proj .plinks { font-size: 0.9rem; }
+  .proj img, .proj video, .proj iframe { width: 100%; aspect-ratio: 16 / 9; max-width: 100%; height: auto;
+          display: block; border: 1px solid var(--rule); object-fit: contain; background: var(--tint); }
+  .proj iframe { border: 0; }
+  .media-ph { aspect-ratio: 16 / 9; max-width: 100%; border: 1px dashed var(--rule); background: var(--tint);
+          display: grid; place-items: center; color: var(--muted); font-size: 0.85rem; text-align: center; padding: 8px; }
+  .status { font-size: 0.75rem; font-weight: 400; color: var(--accent); border: 1px solid var(--accent);
+            border-radius: 3px; padding: 0 5px; margin-left: 6px; vertical-align: 2px; }
+
+  /* entries: education, experience */
+  .entry { margin-bottom: 14px; }
+  .entry .row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 16px; }
+  .entry .row b { font-weight: 700; }
+  .entry .row span { color: var(--muted); }
+  .entry .org { font-style: italic; }
+  .entry ul { margin: 4px 0 0; padding-left: 1.2em; }
+
+  ul.people { padding-left: 1.2em; margin: 0 0 12px; }
+  ul.people li { margin-bottom: 6px; }
+
+  footer { margin-top: 48px; padding-top: 12px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.85rem; }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    header h1 { font-size: 1.9rem; }
+    .intro { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+    .intro img { max-width: 170px; }
+    ul.dated li { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    ol.pubs li { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    .lookout ul { columns: 1; }
+    .proj { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  }
+</style>
+<style>html,body{margin:0}</style>
+</head>
+<body>
+
+<div class="page">
+
+<!-- ================= HEADER ================= -->
+<header id="top">
+  <h1>Dinesh Patra</h1>
+  <p class="sub">Research Scholar, Department of Electrical Engineering<br>Indian Institute of Technology Kharagpur, India</p>
+  <nav aria-label="Sections">
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#publications">Publications</a>
+    <a href="#news">News</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#awards">Awards</a>
+    <a href="#service">Service</a>
+    <a href="cv.pdf" target="_blank" rel="noopener">CV</a>
+  </nav>
+</header>
+
+<!-- ================= ABOUT ================= -->
+<div class="intro" id="about">
+  <div>
+    <img src="profile.jpg" alt="Dinesh Patra at the 2025 American Control Conference, Denver">
+    <ul class="contact">
+      <li><span class="lbl">Email (institute)</span>dinesh.patra912@<wbr>kgpian.iitkgp.ac.in</li>
+      <li><span class="lbl">Email (personal)</span>dinesh.patra912@<wbr>gmail.com</li>
+      <li><a href="https://scholar.google.com/citations?user=yJOKqN0AAAAJ" target="_blank" rel="noopener">Google Scholar</a> ·
+          <a href="https://www.linkedin.com/in/dineshpatra" target="_blank" rel="noopener">LinkedIn</a> ·
+          <a href="https://www.researchgate.net/profile/Dinesh-Patra-4" target="_blank" rel="noopener">ResearchGate</a></li>
+      <li><a href="cv.pdf" target="_blank" rel="noopener">Curriculum Vitae (PDF)</a></li>
+    </ul>
+  </div>
+  <div>
+    <p>Hello! Welcome to my webpage. I am currently a Ph.D. student in the Department of Electrical Engineering at the
+      Indian Institute of Technology Kharagpur, working with
+      <a href="https://facweb.iitkgp.ac.in/~ahota/index.html" target="_blank" rel="noopener">Prof. Ashish R. Hota</a>.
+      My doctoral research explores multi-agent pursuit–evasion, with a focus on pursuit strategies for encirclement
+      and capture in constrained environments under unknown evader policies.</p>
+    <div class="lookout">
+      <p>I am in the final phase of my Ph.D. and am <b>seeking postdoctoral opportunities</b> in the broad area of
+        game theory and control, with particular interest in the following topics:</p>
+      <ul>
+        <li>Pursuit–evasion</li>
+        <li>Guidance</li>
+        <li>Model predictive control</li>
+        <li>Receding-horizon games</li>
+        <li>Safety-critical control</li>
+      </ul>
+      <p>Additional research interests include inverse identification methods such as inverse optimal control and
+        inverse dynamic games. My tentative thesis submission is by mid-to-late February 2027, and I am available to
+        take up a position after that. If you have a relevant opportunity or would like to collaborate on topics of
+        mutual interest, I would love to hear from you.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================= RESEARCH ================= -->
+<section id="research">
+  <h2>Research</h2>
+  <p>My broad research interests currently lie in multi-agent decision-making and control in constrained and uncertain
+    environments, spanning cooperative, competitive, adversarial, and game-theoretic interactions. Drawing on tools from
+    <b>geometric and Lyapunov-based analysis</b>, <b>model predictive control</b>, <b>safety-critical control</b>, and
+    <b>game-theoretic control</b>, my doctoral research has addressed <b>multi-agent pursuit–evasion problems</b>, with a
+    focus on designing strategies that guarantee <b>encirclement and finite-time capture</b> in constrained environments.</p>
+
+  <p>I am working on (or have worked on) the following interesting problems:</p>
+  <!-- RESEARCH PROBLEMS: each <article> is one problem. To add a plot or video, follow the MEDIA note inside it. -->
+  <div class="projects">
+    <article class="proj">
+      <!-- MEDIA: replace the placeholder <div> below with ONE of:
+             an image/plot:   <img src="FILE.png" alt="DESCRIPTION">
+             a GIF animation: <img src="FILE.gif" alt="DESCRIPTION">
+             a video file:    <video src="FILE.mp4" controls muted loop playsinline></video>
+             a YouTube video: <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="DESCRIPTION" allowfullscreen></iframe> -->
+      <div class="media-ph">Simulation / video coming soon</div>
+      <div>
+        <h4>Encirclement guaranteed finite-time capture against unknown evader strategies</h4>
+        <p>A team of pursuers must keep an evader inside their convex hull and capture it in finite time without knowing the evader’s strategy, for example surveillance robots surrounding an intruder in a monitored area. We design geometric pursuit strategies that maintain encirclement throughout the game and prove finite-time capture using a Lyapunov-based analysis, with an explicit bound on the capture time.</p>
+        <p class="plinks"><a href="#publications">[J1]</a> · <a href="https://arxiv.org/abs/2603.15278" target="_blank" rel="noopener">arXiv</a></p>
+      </div>
+    </article>
+    <article class="proj">
+      <!-- MEDIA: replace the placeholder <div> below with ONE of:
+             an image/plot:   <img src="FILE.png" alt="DESCRIPTION">
+             a GIF animation: <img src="FILE.gif" alt="DESCRIPTION">
+             a video file:    <video src="FILE.mp4" controls muted loop playsinline></video>
+             a YouTube video: <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="DESCRIPTION" allowfullscreen></iframe> -->
+      <div class="media-ph">Simulation / video coming soon</div>
+      <div>
+        <h4>3D cooperative pursuit with guaranteed enclosure via robust model predictive control</h4>
+        <p>In three dimensions the evader has many more ways to escape. We partition the evader-centred space so that enclosure is guaranteed whenever each pursuer stays in its assigned region, and each pursuer solves a decentralized robust MPC problem that treats the evader’s motion as uncertainty.</p>
+        <p class="plinks"><a href="#publications">[C1]</a></p>
+      </div>
+    </article>
+    <article class="proj">
+      <!-- MEDIA: replace the placeholder <div> below with ONE of:
+             an image/plot:   <img src="FILE.png" alt="DESCRIPTION">
+             a GIF animation: <img src="FILE.gif" alt="DESCRIPTION">
+             a video file:    <video src="FILE.mp4" controls muted loop playsinline></video>
+             a YouTube video: <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="DESCRIPTION" allowfullscreen></iframe> -->
+      <div class="media-ph">Simulation / video coming soon</div>
+      <div>
+        <h4>Finite-time capture by a Dubins pursuer</h4>
+        <p>A Dubins pursuer moves at constant speed with a bounded turn rate, while a slower evader can change its heading instantly. We propose a turn-rate feedback law with a single tunable gain that guarantees finite-time capture against any admissible evader strategy without violating the turn-rate limit, together with an explicit capture-time bound.</p>
+        <p class="plinks"><a href="#publications">[S1]</a> · <a href="https://arxiv.org/abs/2610.25007" target="_blank" rel="noopener">arXiv</a></p>
+      </div>
+    </article>
+    <article class="proj">
+      <!-- MEDIA: replace the placeholder <div> below with ONE of:
+             an image/plot:   <img src="FILE.png" alt="DESCRIPTION">
+             a GIF animation: <img src="FILE.gif" alt="DESCRIPTION">
+             a video file:    <video src="FILE.mp4" controls muted loop playsinline></video>
+             a YouTube video: <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="DESCRIPTION" allowfullscreen></iframe> -->
+      <div class="media-ph">Simulation / video coming soon</div>
+      <div>
+        <h4>Model predictive control based target defense</h4>
+        <p>A defender must protect a target from an attacker without knowing the target’s location or the attacker’s strategy. The defender predicts the attacker’s future trajectory online from its recent motion and uses this prediction within an MPC formulation, including in the presence of obstacles.</p>
+        <p class="plinks"><a href="#publications">[C2]</a></p>
+      </div>
+    </article>
+    <article class="proj">
+      <!-- MEDIA: replace the placeholder <div> below with ONE of:
+             an image/plot:   <img src="FILE.png" alt="DESCRIPTION">
+             a GIF animation: <img src="FILE.gif" alt="DESCRIPTION">
+             a video file:    <video src="FILE.mp4" controls muted loop playsinline></video>
+             a YouTube video: <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="DESCRIPTION" allowfullscreen></iframe> -->
+      <div class="media-ph">Simulation / video coming soon</div>
+      <div>
+        <h4>Robust receding-horizon games</h4>
+        <p>Multiple agents with coupled constraints each solve their own predictive control problem under bounded disturbances. Using tube-based constraint tightening, we guarantee recursive feasibility and show convergence to a neighbourhood of a generalized Nash equilibrium.</p>
+        <p class="plinks"><a href="#publications">[W1]</a> · <a href="https://arxiv.org/abs/2607.04213" target="_blank" rel="noopener">arXiv</a></p>
+      </div>
+    </article>
+  </div>
+
+  <h3>Collaborators</h3>
+  <p>I am fortunate to have worked in collaboration with the following wonderful researchers:</p>
+  <ul class="people">
+    <li><a href="https://sites.google.com/site/bshaunak/" target="_blank" rel="noopener">Prof. Shaunak D. Bopardikar</a>,
+      Department of Electrical and Computer Engineering, Michigan State University, USA.</li>
+    <li><a href="https://sites.google.com/view/bhargavjha/home" target="_blank" rel="noopener">Prof. Bhargav Jha</a>,
+      Department of Electrical Engineering, IIT Kharagpur, India.</li>
+    <li><a href="https://www.iitkgp.ac.in/department/EE/faculty/ee-smukh" target="_blank" rel="noopener">Prof. Siddhartha Mukhopadhyay</a>,
+      Department of Electrical Engineering, IIT Kharagpur, India.</li>
+    <li><a href="https://www.linkedin.com/in/prajakta-surve-095b0b285/" target="_blank" rel="noopener">Dr. Prajakta Surve</a>,
+      Postdoctoral Fellow, Michigan State University, USA.</li>
+  </ul>
+  <p>and colleagues/students:</p>
+  <ul class="people">
+    <li><a href="https://scholar.google.com/citations?user=4DpuD9AAAAAJ&amp;hl=en" target="_blank" rel="noopener">Simran Kumari</a>,
+      Ph.D. Scholar, Department of Electrical Engineering, IIT Kharagpur, India.</li>
+    <li><a href="https://deepak-212.github.io/" target="_blank" rel="noopener">Deepak G</a>, Undergraduate Student, Department of Aerospace Engineering, IIT Kharagpur, India.</li>
+  </ul>
+</section>
+
+<!-- ================= PUBLICATIONS ================= -->
+<section id="publications">
+  <h2>Publications</h2>
+
+  <h3>Journal Articles</h3>
+  <ol class="pubs">
+    <li><span class="tag">[J1]</span><div>
+      <span class="me">D. Patra</span>, P. Surve, A. R. Hota, and S. D. Bopardikar,
+      “<span class="ptitle">Encirclement Guaranteed Finite-Time Capture against Unknown Evader Strategies</span>,”
+      <span class="venue">IEEE Control Systems Letters</span>, 2026.
+      [<a href="https://arxiv.org/abs/2603.15278" target="_blank" rel="noopener">arXiv</a>]</div></li>
+  </ol>
+
+  <h3>Submitted</h3>
+  <ol class="pubs">
+    <li><span class="tag">[S1]</span><div>
+      <span class="me">D. Patra</span>, B. Jha, and A. R. Hota,
+      “<span class="ptitle">Finite-Time Capture by a Dubins Pursuer Against Unknown Evader Strategies</span>,” 2026.
+      [<a href="https://arxiv.org/abs/2610.25007" target="_blank" rel="noopener">arXiv</a>]</div></li>
+  </ol>
+
+  <h3>Working Papers</h3>
+  <ol class="pubs">
+    <li><span class="tag">[W1]</span><div>
+      <span class="me">D. Patra</span>, T. Jain, and A. R. Hota,
+      “<span class="ptitle">Robust Receding Horizon Games with Additive Uncertainty</span>,” 2026.
+      [<a href="https://arxiv.org/abs/2607.04213" target="_blank" rel="noopener">arXiv</a>]</div></li>
+  </ol>
+
+  <h3>Conference Papers</h3>
+  <ol class="pubs">
+    <li><span class="tag">[C1]</span><div>
+      <span class="me">D. Patra</span> and A. R. Hota,
+      “<span class="ptitle">3D Cooperative Pursuit with Guaranteed Enclosure via Robust Model Predictive Control</span>,”
+      <span class="venue">2025 American Control Conference (ACC)</span>, Denver, CO, USA, pp. 2–7, 2025.</div></li>
+    <li><span class="tag">[C2]</span><div>
+      <span class="me">D. Patra</span>, S. Kumari, and A. R. Hota,
+      “<span class="ptitle">Model Predictive Control based Target Defense with Attacker Trajectory Prediction</span>,”
+      <span class="venue">2024 European Control Conference (ECC)</span>, Stockholm, Sweden, pp. 597–602, 2024.</div></li>
+    <li><span class="tag">[C3]</span><div>
+      <span class="me">D. Patra</span>, P. Halder, M. Roy, S. Ghosh, A. R. Hota, and S. Mukhopadhyay,
+      “<span class="ptitle">Trajectory Prediction under Sensor Bias Faults in a Tactical Aerial Vehicle</span>,”
+      <span class="venue">2023 International Conference on Range Technology (ICORT)</span>, pp. 1–6, 2023.
+      <b>Best Paper Award.</b></div></li>
+  </ol>
+</section>
+
+<!-- ================= NEWS =================
+     To add news: copy one <li> ... </li> line, paste it at the top of the list, and edit the date and text. -->
+<section id="news">
+  <h2>News</h2>
+  <ul class="dated">
+    <li><span class="when upcoming">Jan 2027</span><span>Presenting a journal abstract on our work
+      “Encirclement Guaranteed Finite-Time Capture against Unknown Evader Strategies,” published in
+      <i>IEEE Control Systems Letters</i>, at the Indian Control Conference (ICC) 2027, IIT Kharagpur.
+      See you at IIT Kharagpur!</span></li>
+    <li><span class="when">Jan 2026</span><span>Attended the Reinforcement Learning Workshop at IISc Bangalore.</span></li>
+    <li><span class="when">Oct 2025</span><span>Received the Best Poster Award at Research and Innovation Day 2025,
+      Department of Electrical Engineering, IIT Kharagpur, for a poster based on our ACC paper
+      “3D Cooperative Pursuit with Guaranteed Enclosure via Robust Model Predictive Control.”</span></li>
+    <li><span class="when">Jul 2025</span><span>Presented our paper “3D Cooperative Pursuit with Guaranteed Enclosure via
+      Robust Model Predictive Control” at the 2025 American Control Conference (ACC), Denver, Colorado, USA.</span></li>
+    <li><span class="when">May 2025</span><span>Visited Michigan State University (May – July 2025) to work with
+      Prof. Shaunak D. Bopardikar under the IEEE CSS Graduate Collaboration Fellowship.</span></li>
+    <li><span class="when">Sep 2024</span><span>Presented our work “Model Predictive Control based Target Defense with
+      Attacker Trajectory Prediction” at the Learning and Control Colloquium, IIT Bombay.</span></li>
+    <li><span class="when">Jun 2024</span><span>Presented our paper “Model Predictive Control based Target Defense with
+      Attacker Trajectory Prediction” at the 2024 European Control Conference (ECC), Stockholm, Sweden.</span></li>
+  </ul>
+</section>
+
+<!-- ================= EDUCATION ================= -->
+<section id="education">
+  <h2>Education</h2>
+  <div class="entry">
+    <div class="row"><b>Ph.D. in Control Systems</b><span>Aug 2021 – Jul 2027 (Tentative)</span></div>
+    <div class="org">Indian Institute of Technology Kharagpur, India</div>
+    <ul>
+      <li>Tentative thesis title: <i>Encirclement and Capture Guarantees in Constrained Environment against Unknown Evader Strategies</i></li>
+      <li>Advisor: Prof. Ashish Ranjan Hota</li>
+    </ul>
+  </div>
+  <div class="entry">
+    <div class="row"><b>M.Tech. in Control &amp; Industrial Automation</b><span>Jul 2019 – May 2021</span></div>
+    <div class="org">National Institute of Technology Silchar, India</div>
+    <ul>
+      <li>Thesis: <i>A New Observer-Based Chattering-Free-Integral-Non-Singular-Terminal Sliding Mode Controller for a System with Disturbances</i></li>
+      <li>Advisor: Prof. Binoy Krishna Roy</li>
+    </ul>
+  </div>
+  <div class="entry">
+    <div class="row"><b>B.Tech. in Electrical Engineering</b><span>Jul 2013 – May 2017</span></div>
+    <div class="org">Parala Maharaja Engineering College, Brahmapur, India</div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience">
+  <h2>Experience</h2>
+  <h3>Research Experience</h3>
+  <div class="entry">
+    <div class="row"><b>Doctoral Research</b><span>Aug 2021 – Present</span></div>
+    <div class="org">Department of Electrical Engineering, IIT Kharagpur</div>
+    <ul><li>Encirclement guaranteed capture in multi-agent pursuit–evasion using geometric approaches, model predictive control, and control barrier functions; turn-rate-constrained capture; target defense; robust receding-horizon games.</li></ul>
+  </div>
+  <div class="entry">
+    <div class="row"><b>Visiting Graduate Student</b><span>May 2025 – Jul 2025</span></div>
+    <div class="org">Department of Electrical and Computer Engineering, Michigan State University, USA</div>
+    <ul><li>Research collaboration with Prof. Shaunak D. Bopardikar, supported by the IEEE Control Systems Society Graduate Collaboration Fellowship.</li></ul>
+  </div>
+  <div class="entry">
+    <div class="row"><b>Sponsored Project</b><span>Feb 2022 – Jul 2023</span></div>
+    <div class="org">Integrated Test Range (ITR), Defence Research and Development Organisation (DRDO)</div>
+    <ul><li>Worked on <i>Trajectory Prediction and Safety Assessment of a Tactical Aerial Vehicle</i>. PI: Prof. Ashish R. Hota; Co-PI: Prof. Siddhartha Mukhopadhyay.</li></ul>
+  </div>
+  <h3>Teaching Experience</h3>
+  <div class="entry">
+    <div class="row"><b>Teaching Assistant</b><span>Aug 2021 – Present</span></div>
+    <div class="org">Indian Institute of Technology Kharagpur</div>
+    <ul><li>Convex Optimization in Control and Signal Processing; Control and Electronic System Design Lab; PG Control Design Lab; UG Control Lab; Electrical Technology.</li></ul>
+  </div>
+  <div class="entry">
+    <div class="row"><b>NPTEL Teaching Assistant</b><span>Autumn 2025, Autumn 2026</span></div>
+    <div class="org">National Programme on Technology Enhanced Learning (NPTEL), IIT Kharagpur</div>
+    <ul><li><i>Convex Optimization in Control</i> (Instructor: Prof. Ashish R. Hota).</li></ul>
+  </div>
+</section>
+
+<!-- ================= AWARDS ================= -->
+<section id="awards">
+  <h2>Awards and Achievements</h2>
+  <ul class="dated">
+    <li><span class="when">2024</span><span><b>IEEE Control Systems Society Graduate Collaboration Fellowship</b>, awarded to at most ten selected graduate students worldwide each year; funded a research visit to Michigan State University.</span></li>
+    <li><span class="when">2025</span><span><b>Best Poster Award</b>, Research and Innovation Day, Department of Electrical Engineering, IIT Kharagpur.</span></li>
+    <li><span class="when">2023</span><span><b>Best Paper Award</b>, International Conference on Range Technology (ICORT) 2023, organized by the Integrated Test Range (ITR), DRDO.</span></li>
+    <li><span class="when">2019</span><span><b>MHRD Fellowship</b>, Ministry of Human Resource Development, Government of India, awarded on the basis of Graduate Aptitude Test in Engineering (GATE) 2019 score for postgraduate studies.</span></li>
+    <li><span class="when">2024 – 2026</span><span><b>Travel Grants:</b> Reinforcement Learning Workshop, IISc Bangalore (Jan 2026); 2025 American Control Conference, Denver (Jul 2025); Learning and Control Colloquium, IIT Bombay (Sep 2024).</span></li>
+  </ul>
+</section>
+
+<!-- ================= SERVICE ================= -->
+<section id="service">
+  <h2>Service and Responsibilities</h2>
+  <h3>Reviewer</h3>
+  <ul class="plain">
+    <li><i>Journals:</i> IEEE Transactions on Automation Science and Engineering; IEEE Transactions on Cybernetics;
+      International Journal of Control; IEEE Robotics and Automation Letters; IEEE Control Systems Letters;
+      IEEE Open Journal of Control Systems.</li>
+    <li><i>Conferences:</i> ACC, CDC, ECC, Indian Control Conference (ICC), ACODS, and IEEE INDICON.</li>
+  </ul>
+  <h3>Positions of Responsibility</h3>
+  <ul class="plain">
+    <li><b>Core Committee Member</b>, Research and Innovation Day 2025, organized by the research scholars of the Department of Electrical Engineering, IIT Kharagpur.</li>
+    <li><b>Student Volunteer</b>, Indian Control Conference (ICC) 2027, IIT Kharagpur (to be held in January 2027).</li>
+    <li><b>Student Volunteer</b>, IEEE CSS Day 2022 Seminar Series, organized by the IEEE Control Systems Society Kharagpur Chapter.</li>
+    <li><b>Student Volunteer</b>, Fractional Order Systems and Their Applications (FOSTA) 2019, NIT Silchar, Assam.</li>
+  </ul>
+</section>
+
+<footer>
+  © 2026 Dinesh Patra · Last updated: October 2026 · <a href="#top">Back to top</a>
+</footer>
+
+</div>
+
+</body>
+</html>
